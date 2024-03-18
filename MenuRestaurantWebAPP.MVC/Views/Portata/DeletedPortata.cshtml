@@ -1,0 +1,29 @@
+﻿@model MenuRestaurantWebAPP.MVC.PortataViewModels.PortataDeletedPortataViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Portata Eliminata";
+}
+
+<html>
+<body>
+    <h2></h2>
+    <div class="container">
+        <div class="table-responsive">
+            <h2 class="text-center">La seguente portata è stata eliminata</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">@Model.Portata.Tipologia</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

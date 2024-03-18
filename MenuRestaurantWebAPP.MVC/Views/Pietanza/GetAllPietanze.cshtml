@@ -1,0 +1,46 @@
+﻿@model MenuRestaurantWebAPP.MVC.PietanzaViewModels.PietanzaGetAllPietanzeViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Pietanze";
+}
+
+<html>
+<body>
+    <h2></h2>
+    <div class="container">
+        <div class="table-responsive">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <h2>Lista delle pietanze</h2>
+                    <a href="/SearchPietanza" class="btn btn-outline-success" role="button">Cerca</a>
+                </div>
+            </nav>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">Nome</th>
+                        <th class="text-center">Prezzo</th>
+                        <th class="text-center">Tipologia</th>
+                        <th class="text-center"></th>
+                        <th class="text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var pietanza in Model.Pietanze)
+                    {
+                        <tr>
+                            <td class="text-center">@pietanza.Nome</td>
+                            <td class="text-center">@pietanza.Prezzo.ToString("0.00")</td>
+                            <td class="text-center">@pietanza.Tipologia</td>
+                            <td class="text-center"><a href="/DeletePietanza/@pietanza.Nome">Elimina</a></td>
+                            <td class="text-center"><a href="/UpdatePietanza/@pietanza.Nome">Modifica</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

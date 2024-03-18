@@ -1,0 +1,35 @@
+﻿@model MenuRestaurantWebAPP.MVC.PietanzaViewModels.PietanzaUpdatePietanzaViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Modifica Pietanza";
+}
+
+<html>
+<body>
+    <h2></h2>
+    <div class="container">
+        <form method="post" asp-controller="Pietanza" asp-action="UpdatedPietanza">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome della pietanza</label>
+                <input readonly type="text" class="form-control" value="@Model.Pietanza.Nome" id="nome" name="nome">
+            </div>
+            <div class="mb-3">
+                <label for="prezzo" class="form-label">Prezzo della pietanza</label>
+                <input type="text" class="form-control" id="prezzo" name="prezzo" aria-describedby="prezzoHelp">
+                <div id="prezzoHelp" class="form-text">Inserisci il prezzo della pietanza.</div>
+            </div>
+            <div class="mb-3">
+                <label for="tipologia" class="form-label">Tipologia della pietanza</label>
+                <select class="form-select" id="tipologia" name="tipologia" aria-label="Tipologia pietanza">
+                    @foreach (var portata in Model.Portate)
+                    {
+                        <option value="@portata.Tipologia">@portata.Tipologia</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Crea</button>
+        </form>
+    </div>
+</body>
+</html>

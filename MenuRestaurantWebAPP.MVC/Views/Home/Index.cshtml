@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <!-- Layout for laptops -->
+    <div class="d-none d-lg-block">
+        <div class="d-grid gap-2 col-lg-6 mx-auto">
+            <a id="allPortate" href="/GetAllPortate" class="btn btn-outline-primary mt-4 mb-3">Tutte le portate</a>
+            <a id="allPietanze" href="/GetAllPietanze" class="btn btn-outline-primary mb-3">Tutte le pietanze</a>
+            <a id="createPortata" href="/CreatePortata" class="btn btn-outline-primary mb-3">Crea una portata</a>
+            <a id="createPietanza" href="/CreatePietanza" class="btn btn-outline-primary mb-4">Crea una pietanza</a>
+        </div>
+    </div>
+
+    <!-- Layout for smartphones -->
+    <div class="d-lg-none">
+        <div class="d-grid gap-2 col-10 mx-auto">
+            <a id="allPortate" href="/GetAllPortate" class="btn btn-outline-primary mt-4 mb-3">Tutte le portate</a>
+            <a id="allPietanze" href="/GetAllPietanze" class="btn btn-outline-primary mb-3">Tutte le pietanze</a>
+            <a id="createPortata" href="/CreatePortata" class="btn btn-outline-primary mb-3">Crea una portata</a>
+            <a id="createPietanza" href="/CreatePietanza" class="btn btn-outline-primary mb-4">Crea una pietanza</a>
+        </div>
+    </div>
+
+    <script>
+        navigator.serviceWorker.register("service-worker.js")
+    </script>
+</div>

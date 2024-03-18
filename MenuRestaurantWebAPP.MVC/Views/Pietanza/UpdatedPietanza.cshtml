@@ -1,0 +1,33 @@
+﻿@model MenuRestaurantWebAPP.MVC.PietanzaViewModels.PietanzaUpdatedPietanzaViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Pietanza Modificata";
+}
+
+<html>
+<body>
+    <h2></h2>
+    <div class="container">
+        <div class="table-responsive">
+            <h2>La seguente pietanza è stata modificata</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">Nome</th>
+                        <th class="text-center">Prezzo</th>
+                        <th class="text-center">Tipologia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">@Model.Pietanza.Nome</td>
+                        <td class="text-center">@Model.Pietanza.Prezzo.ToString("0.00")</td>
+                        <td class="text-center">@Model.Pietanza.Tipologia</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

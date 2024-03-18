@@ -1,0 +1,45 @@
+﻿@model MenuRestaurantWebAPP.MVC.PortataViewModels.PortataGetAllPortateViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Portate";
+}
+
+<html>
+<body>
+    <h2></h2>
+    <div class="container">
+        <div class="table-responsive">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <h2>Lista delle portate</h2>
+                    <form class="d-flex" role="search" asp-action="GetPortata">
+                        <div class="input-group">
+                            <input class="form-control" type="text" id="tipologia" name="tipologia" placeholder="Ricerca" aria-label="Ricerca">
+                            <button class="btn btn-outline-success" type="submit">Cerca</button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">Nome</th>
+                        <th class="text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var portata in Model.Portate)
+                    {
+                        <tr>
+                            <td class="text-center">@portata.Tipologia</td>
+                            <td class="text-center"><a href="/DeletePortata/@portata.Tipologia">Elimina</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

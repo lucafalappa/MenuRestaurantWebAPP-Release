@@ -1,0 +1,42 @@
+﻿@model MenuRestaurantWebAPP.MVC.PortataViewModels.PortataGetAllPortateViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Cerca Pietanza";
+}
+
+<html>
+<body>
+    <h2></h2>
+    <div class="container">
+        <form method="post" asp-controller="Pietanza" asp-action="GetPietanza">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome della pietanza</label>
+                <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nomeHelp">
+                <div id="nomeHelp" class="form-text">Inserisci il nome della pietanza desiderata.</div>
+            </div>
+            <div class="mb-3">
+                <label for="prezzoMinimo" class="form-label">Prezzo minimo</label>
+                <input type="text" class="form-control" id="prezzoMinimo" name="prezzoMinimo" aria-describedby="prezzoMinimoHelp">
+                <div id="prezzoMinimoHelp" class="form-text">Inserisci il prezzo minimo della pietanza desiderata.</div>
+            </div>
+            <div class="mb-3">
+                <label for="prezzoMassimo" class="form-label">Prezzo massimo</label>
+                <input type="text" class="form-control" id="prezzoMassimo" name="prezzoMassimo" aria-describedby="prezzoMassimoHelp">
+                <div id="prezzoMassimoHelp" class="form-text">Inserisci il prezzo massimo della pietanza desiderata.</div>
+            </div>
+            <div class="mb-3">
+                <label for="tipologia" class="form-label">Tipologia della portata</label>
+                <select class="form-select" id="tipologia" name="tipologia" aria-label="Tipologia portata">
+                    <option selected value=""></option>
+                    @foreach (var portata in Model.Portate)
+                    {
+                        <option value="@portata.Tipologia">@portata.Tipologia</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Ricerca</button>
+        </form>
+    </div>
+</body>
+</html>

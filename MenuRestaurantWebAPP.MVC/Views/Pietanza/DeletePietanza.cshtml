@@ -1,0 +1,25 @@
+﻿@model MenuRestaurantWebAPP.MVC.PietanzaViewModels.PietanzaDeletePietanzaViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Elimina Pietanza";
+}
+
+<html>
+<body>
+    <h2></h2>
+    <div class="container">
+        <h2 class="text-center">SEI SICURO DI VOLER CANCELLARE LA PIETANZA "@Model.Pietanza.Nome"?</h2>
+        <p></p>
+        <div class="d-grid gap-2 col-6 mx-auto text-center">
+            <form method="post" asp-controller="Pietanza" asp-action="DeletedPietanza">
+                <button class="btn btn-outline-danger w-100 mt-3 mb-3" type="submit">SI</button>
+                <input hidden readonly type="text" value="@Model.Pietanza.Nome" id="nome" name="nome" />
+            </form>
+            <form method="get" asp-controller="Home" asp-action="">
+                <button class="btn btn-outline-success w-100 mt-3 mb-3" type="submit">NO</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

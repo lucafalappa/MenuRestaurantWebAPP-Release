@@ -1,0 +1,22 @@
+﻿@model MenuRestaurantWebAPP.MVC.PortataViewModels.PortataCreatePortataViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Crea Portata";
+}
+
+<html>
+<body>
+    <h2></h2>
+    <div class="container">
+        <form method="post" asp-controller="Portata" asp-action="CreatedPortata">
+            <div class="mb-3">
+                <label for="tipologia" class="form-label">Nome della portata</label>
+                <input type="text" class="form-control" id="tipologia" name="tipologia" aria-describedby="tipologiaHelp">
+                <div id="tipologiaHelp" class="form-text">Inserisci il nome della portata.</div>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Crea</button>
+        </form>
+    </div>
+</body>
+</html>

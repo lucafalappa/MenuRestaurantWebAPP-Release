@@ -1,0 +1,27 @@
+version: '3.4'
+
+networks:
+  menurestaurantnetwork:
+
+services:
+  menurestaurantDB:
+    container_name: menurestaurantDB
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+     - 5101:1433
+    environment:
+     - ACCEPT_EULA=Y
+     - MSSQL_SA_PASSWORD=Ciaomondo1!
+     - MSSQL_PID=Express
+    networks:
+     - menurestaurantnetwork
+  menurestaurantwebapp.mvc:
+    container_name: menurestaurantwebapp.mvc
+    ports:
+     - 5100:8080
+    image: ${DOCKER_REGISTRY-}menurestaurantwebapp.mvc
+    build: .
+    depends_on:
+     - menurestaurantDB
+    networks:
+     - menurestaurantnetwork
