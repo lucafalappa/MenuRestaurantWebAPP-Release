@@ -15,13 +15,13 @@ Abbiamo definito i seguenti modelli, allocati in una libreria di classi esterna:
 2. La classe Pietanza con le seguenti proprietà: Id, Nome, Prezzo, Portata Id, Tipologia (riferita alla portata associata) 
 
 ### Controller
-Abbiamo sfruttato il controller di default, ovvero HomeController, per gestire le operazioni CRUD (Create, Read, Update, Delete) sulle portate e pietanze. I metodi per manipolare l’insieme dei dati memorizzati sono stati implementati in una libreria di classi, esterna al progetto principale.
+Abbiamo aggiunto due controller, oltre al controller di default, ovvero PortataController e PietanzaController, per gestire le operazioni CRUD (Create, Read, Update, Delete) sulle portate e pietanze. I metodi per manipolare l’insieme dei dati memorizzati sono stati implementati in una libreria di classi, esterna al progetto principale.
 
 ### ViewModels 
 Un modello di una vista contiene solo i dati necessari per la visualizzazione o la modifica sulla pagina, semplificandone la gestione e la validazione, consentendo di mantenere la logica di business separata dall’interfaccia grafica. 
 
 ### Views
-Le visualizzazioni Razor da noi create consentono di visionare i dati elaborati dai metodi contenuti nel controller. 
+Le visualizzazioni Razor da noi create consentono di visionare i dati elaborati dai metodi contenuti nei controller. 
 
 ## Stile e Layout: 
 Abbiamo sviluppato le nostre pagine web applicando i layout generati automaticamente al momento della creazione del progetto.  Per quanto riguarda le viste da noi realizzate, abbiamo seguito una linea implementativa condivisa, sfruttando i componenti di Bootstrap. 
@@ -41,7 +41,7 @@ La configurazione della base di dati avviene tramite dependency injection, al mo
 ## Docker
 Con l’obiettivo di ospitare il nostro applicativo web all’interno di un container Docker, abbiamo innanzitutto aggiunto il supporto Docker (Dockerfile) al progetto MVC, che ha la funzione di generare l’immagine da predisporre nel container. Tra le altre informazioni presenti in Dockerfile, abbiamo impostato la porta esposta dal container. 
 
-Successivamente per far comunicare tra loro l’applicazione e il database, facciamo uso dell’agente di orchestrazione dei container (Docker Compose). Docker Compose utilizza il formato YAML, caratterizzato da flessibilità e leggibilità, e che rende intuitiva la definizione di dati strutturati e configurazioni. All’interno di docker-compose.yml abbiamo dichiarato, tra l’altro: 
+Successivamente, per far comunicare tra loro l’applicazione e il database, facciamo uso dell’agente di orchestrazione dei container (Docker Compose). Docker Compose utilizza il formato YAML, caratterizzato da flessibilità e leggibilità, e che rende intuitiva la definizione di dati strutturati e configurazioni. All’interno di docker-compose.yml abbiamo dichiarato, tra l’altro: 
 - Le immagini (applicazione e base di dati) di riferimento
 - Le porte da esporre, sia dal computer host sia dai container
 - Le variabili d’ambiente del database
@@ -60,6 +60,7 @@ Un service worker è uno script JavaScript che il browser avvia in background. E
 - Definizione della cache del sito web 
 - L’evento di installazione della PWA
 - Eventi di recupero della richiesta eseguita dal browser
+
 L’implementazione di service-worker.js non è stata effettuata integralmente, a causa di conflitti generabili quando viene avviato in un ambiente HTTP; inoltre è stata realizzata mediante lo strumento open source PWABuilder di Microsoft. 
 
 ### PWA
@@ -68,4 +69,5 @@ A differenza delle app tradizionali, le PWA sono un ibrido tra le normali pagine
 - Di veloce implementazione
 - Non necessitano di duplicazione del codice in base al sistema operativo 
 - Scaricabili accedendo al sito web
+
 È possibile verificare che il progetto risulti essere una PWA, avvalendosi per esempio della composizione dei container Docker.
